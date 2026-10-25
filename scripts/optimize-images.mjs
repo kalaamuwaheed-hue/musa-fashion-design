@@ -2,12 +2,13 @@ import { readdir, mkdir, stat } from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
 
-const SRC_DIRS = ["source-images", "source-images/reference", "source-images/stock"];
+const SRC_DIRS = ["public/images", "public/images/reference", "public/images/stock"];
 const OUT_DIR = "src/assets/img";
 const MAX_WIDTH = 1000;
 const QUALITY = 62;
 
 await mkdir(OUT_DIR, { recursive: true });
+await mkdir(".shots", { recursive: true });
 
 const files = [];
 for (const dir of SRC_DIRS) {

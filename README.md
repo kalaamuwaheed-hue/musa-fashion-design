@@ -34,7 +34,7 @@ Open `src/data/site.ts`. Everything is plain English:
 
 ### 2. Replace the photographs with your own work
 1. Put your new photo in `src/assets/img/` (for example `my-kaftan.jpg`).
-   The original high-resolution files are kept in `source-images/`.
+   The original high-resolution files are kept in `public/images/`.
 2. Open `src/data/images.ts` and point the key to your file:
    ```ts
    "gallery-black-kaftan": myKaftanImg,
@@ -108,7 +108,7 @@ npm run preview   # preview the production build
 ### Optional dev tools (in `scripts/`)
 
 ```bash
-node scripts/optimize-images.mjs   # compress + resize source-images/ -> src/assets/img
+node scripts/optimize-images.mjs   # compress + resize public/images/ -> src/assets/img
 node scripts/audit.mjs             # check for broken images / mobile overflow
 node scripts/shoot.mjs             # desktop + mobile screenshots (needs playwright)
 ```
