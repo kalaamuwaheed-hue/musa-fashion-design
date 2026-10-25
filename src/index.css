@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  /* Musa Fashion Design — brand palette */
+  --color-ink: #101010;
+  --color-gold: #c8a45d;
+  --color-gold-light: #e2c78f;
+  --color-gold-deep: #a8863f;
+  --color-ivory: #f5f0e6;
+  --color-cream: #faf8f3;
+  --color-charcoal: #242424;
+  --color-line: #e3dccd;
+
+  --font-display: "Playfair Display", "Times New Roman", Georgia, serif;
+  --font-sans: "Jost", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --shadow-lux: 0 24px 60px -30px rgba(16, 16, 16, 0.45);
+  --shadow-card: 0 18px 40px -28px rgba(16, 16, 16, 0.5);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  ::selection {
+    background-color: var(--color-gold);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+
+  /* Respect users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .eyebrow {
+    font-size: 0.6875rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .container-lux {
+    width: 100%;
+    margin-inline: auto;
+    max-width: 80rem;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-lux {
+      padding-inline: 2rem;
+    }
+  }
+
+  .gold-rule {
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      var(--color-gold),
+      transparent
+    );
+  }
+}
+
+/* Subtle image zoom on hover (desktop only) */
+@media (hover: hover) {
+  .zoomable img {
+    transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .zoomable:hover img {
+    transform: scale(1.05);
+  }
+}
